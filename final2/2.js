@@ -1,4 +1,4 @@
-let  user{[
+let  user = [
     {
         "id": 1,
         "name": "Leanne Graham",
@@ -229,4 +229,20 @@ let  user{[
             "bs": "target end-to-end models"
         }
     }
-[}
+]
+const usersList = document.getElementById("users-list");
+
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(users => {
+        users.forEach(user => {
+            const userDiv = document.createElement("div");
+            userDiv.innerHTML = `
+                <p>ID: ${user.id}</p>
+                <p>Name: ${user.name}</p>
+                <a href="user-details.html?id=${user.id}">Тут інфа</a>
+            `;
+            usersList.appendChild(userDiv);
+        });
+    })
+    .catch(error => console.error("Error fetching users:", error));

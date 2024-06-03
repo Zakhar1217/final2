@@ -1,0 +1,10 @@
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-block {
+    background-color: #f0f0f0;
+    margin: 10px;
+    padding: 10px;
+}
